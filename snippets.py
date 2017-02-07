@@ -44,10 +44,11 @@ def catalog(name):
 def search(name):
     logging.info("Searched catalog using {!r}".format(name))
     with connection, connection.cursor() as cursor:
-        stmt = "select * from snippets where message like '%" + name + "%'"
-        row = cursor.fetchone()
+        stmt1= "select * from snippets where message ~* '" + name + "'"
+        cursor.execute(stmt1)
+        rows = cursor.fetchall()
     logging.debug("Search successful.")    
-    return row[0]
+    return rows
     
     
 

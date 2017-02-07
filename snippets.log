@@ -560,3 +560,143 @@ DEBUG:root:Constructing get subparser
 DEBUG:root:Constructing catalog subparser
 DEBUG:root:Constructing catalog subparser
 INFO:root:Searched catalog using 'Test'
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Searched catalog using 'Test'
+DEBUG:root:Search successful.
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Searched catalog using 'Test'
+DEBUG:root:Search successful.
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Searched catalog using 'is'
+DEBUG:root:Search successful.
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Searched catalog using 'is'
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Searched catalog using 'is'
+DEBUG:root:Search successful.
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Searched catalog using 'i'
+DEBUG:root:Search successful.
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Searched catalog using 'i'
+DEBUG:root:Search successful.
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Searched catalog using 'is'
+DEBUG:root:Search successful.
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Searched catalog using 'is'
+DEBUG:root:Search successful.
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Searched catalog using 'is'
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Searched catalog using 'is'
+DEBUG:root:Search successful.
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Searched catalog using 'is'
+DEBUG:root:Search successful.
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Retrieving Catalog ordered by ('name')
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Retrieving Catalog ordered by ('age')
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Retrieving Catalog ordered by ('message')
+DEBUG:root:Catalog received successfully.
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing catalog subparser
+DEBUG:root:Constructing catalog subparser
+INFO:root:Searched catalog using 'is'
+DEBUG:root:Search successful.
