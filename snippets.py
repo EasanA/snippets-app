@@ -31,6 +31,25 @@ def get(name):
         return (name, row[0])
     else:
         return (name, None)
+        
+def catalog(name):
+    logging.info("Retrieving Catalog ordered by ({!r})".format(name))
+    with connection, connection.cursor() as cursor:
+        stmt = "select * from snippets order by " + name
+        cursor.execute(stmt)
+        rows = cursor.fetchall()
+    logging.debug("Catalog received successfully.")    
+    return rows
+    
+def search(name):
+    logging.info("Searched catalog using {!r}".format(name))
+    with connection, connection.cursor() as cursor:
+        stmt = "select * from snippets where message like '%" + name + "%'"
+        row = cursor.fetchone()
+    logging.debug("Search successful.")    
+    return row[0]
+    
+    
 
 def main():
     """Main function"""
@@ -50,6 +69,16 @@ def main():
     get_parser = subparsers.add_parser("get", help="Retrieve a snippet")
     get_parser.add_argument("name", help="Name of the snippet")
     
+    #Subparser for the catalog command
+    logging.debug("Constructing catalog subparser")
+    catalog_parser = subparsers.add_parser("catalog", help="Retrieve a catalog of snippets")
+    catalog_parser.add_argument("name", help="name of the snippet")
+    
+    #Subparser for the search command
+    logging.debug("Constructing catalog subparser")
+    search_parser = subparsers.add_parser("search", help="Searching through snippets using keyword")
+    search_parser.add_argument("name", help="keyword of search")
+    
     arguments = parser.parse_args()
     # Convert parsed arguments from Namespace to dictionary
     arguments = vars(arguments)
@@ -61,6 +90,12 @@ def main():
     elif command == "get":
         snippet = get(**arguments)
         print("Retrieved snippet: {!r}".format(snippet))
+    elif command == "catalog":
+        name = catalog(**arguments)
+        print("Retrieved catalog ordered by {!r}".format(name))
+    elif command == "search":
+        name = search(**arguments)
+        print("Searched catalog using {!r}".format(name))
 
 if __name__ == "__main__":
     main()
