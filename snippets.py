@@ -6,17 +6,20 @@ logging.debug("Connecting to PostgreSQL")
 connection = psycopg2.connect(database="snippets")
 logging.debug("Database connection established.")
 
-def put(name, snippet):
+def put(name, snippet, hidden):
     """Store a snippet with an associated name."""
     logging.info("Storing snippet {!r}: {!r}".format(name, snippet))
     with connection, connection.cursor() as cursor:
         try:
-            command = "insert into snippets values (%s, %s)"
-            cursor.execute(command, (name, snippet))
+            command = "insert into snippets values (%s, %s, %s)"
+            cursor.execute(command, (name, snippet, hidden))
         except psycopg2.IntegrityError as e:
             connection.rollback()
-            command = "update snippets set message=%s where keyword=%s"
-            cursor.execute(command, (snippet, name))
+            if hidden:
+                command = "update snippets set message=%s where keyword=%s and hidden"
+            else:
+                command = "update snippets set message=%s where keyword=%s and not hidden"
+            cursor.execute(command, (snippet, name, hidden))
     logging.debug("Snippet stored successfully.")
     return name, snippet
     
@@ -35,7 +38,7 @@ def get(name):
 def catalog(name):
     logging.info("Retrieving Catalog ordered by ({!r})".format(name))
     with connection, connection.cursor() as cursor:
-        stmt = "select * from snippets order by " + name
+        stmt = "select * from snippets order by " + name + " where not hidden"
         cursor.execute(stmt)
         rows = cursor.fetchall()
     logging.debug("Catalog received successfully.")    
@@ -44,7 +47,7 @@ def catalog(name):
 def search(name):
     logging.info("Searched catalog using {!r}".format(name))
     with connection, connection.cursor() as cursor:
-        stmt1= "select * from snippets where message ~* '" + name + "'"
+        stmt1= "select * from snippets where message ~* '" + name + "' where not hidden"
         cursor.execute(stmt1)
         rows = cursor.fetchall()
     logging.debug("Search successful.")    
@@ -64,6 +67,7 @@ def main():
     put_parser = subparsers.add_parser("put", help="Store a snippet")
     put_parser.add_argument("name", help="Name of the snippet")
     put_parser.add_argument("snippet", help="Snippet text")
+    put_parser.add_argument("--hidden", help="hidden unless specifically requested")
 
     # Subparser for the get command
     logging.debug("Constructing get subparser")
