@@ -11,7 +11,7 @@ def put(name, snippet, hidden):
     logging.info("Storing snippet {!r}: {!r}".format(name, snippet))
     with connection, connection.cursor() as cursor:
         try:
-            command = "insert into snippets values (%s, %s, %s)"
+            command = "insert into snippets values (%s, %s, %s);"
             cursor.execute(command, (name, snippet, hidden))
         except psycopg2.IntegrityError as e:
             connection.rollback()
@@ -38,7 +38,7 @@ def get(name):
 def catalog(name):
     logging.info("Retrieving Catalog ordered by ({!r})".format(name))
     with connection, connection.cursor() as cursor:
-        stmt = "select * from snippets order by " + name + " where not hidden"
+        stmt = "select * from snippets where hidden is false order by " + name
         cursor.execute(stmt)
         rows = cursor.fetchall()
     logging.debug("Catalog received successfully.")    
@@ -47,7 +47,7 @@ def catalog(name):
 def search(name):
     logging.info("Searched catalog using {!r}".format(name))
     with connection, connection.cursor() as cursor:
-        stmt1= "select * from snippets where message ~* '" + name + "' where not hidden"
+        stmt1= "select * from snippets where message ~* '" + name + "' and hidden is false"
         cursor.execute(stmt1)
         rows = cursor.fetchall()
     logging.debug("Search successful.")    
@@ -67,7 +67,7 @@ def main():
     put_parser = subparsers.add_parser("put", help="Store a snippet")
     put_parser.add_argument("name", help="Name of the snippet")
     put_parser.add_argument("snippet", help="Snippet text")
-    put_parser.add_argument("--hidden", help="hidden unless specifically requested")
+    put_parser.add_argument("--hidden", help="hidden unless specifically requested", action = "store_true")
 
     # Subparser for the get command
     logging.debug("Constructing get subparser")
